@@ -1,0 +1,3 @@
+apache-airflow[postgres,google]==2.1.4
+apache-airflow-providers-ssh
+apache-airflow-providers-sftp

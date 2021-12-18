@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  mongodb:
+    hostname: mongodb
+    image: mongo:4.0.2
+    expose:
+      - 27017
+    ports:
+      - 27018:27017
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0"]
+    volumes:
+      - db1_data:/data/db
+      - db1_config:/data/configdb
+  
+  mongo-setup:
+    build: "mongo-setup"
+    depends_on:
+      - mongodb
+  
+  app:
+    build: "dados-fundos-app"
+    entrypoint: "python main.py"
+    volumes:
+      - "./dados-fundos-app/app:/app"
+
+volumes:
+  db1_data:
+  db1_config:
