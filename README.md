@@ -10,6 +10,6 @@ e criar um base de dados mongo.
 > docker-compose -d --build 
 
 ## baixar dados
-> docker-compose run app import_all
-> docker-compose run app import_cadastro
-> docker-compose run app convert_db
+> docker-compose run app import_all  
+> docker-compose run app import_cadastro  
+> docker-compose run app convert_db  
